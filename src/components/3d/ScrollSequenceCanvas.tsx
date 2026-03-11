@@ -11,12 +11,14 @@ interface ScrollSequenceCanvasProps {
     containerId: string; // The ID of the container pin the scroll to
     onProgress?: (progress: number, currentFrame: number) => void;
     priority?: boolean;
+    onReady?: () => void;
 }
 
 export const ScrollSequenceCanvas: React.FC<ScrollSequenceCanvasProps> = ({
     imageUrls,
     containerId,
     onProgress,
+    onReady,
 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const playheadRef = useRef({ frame: 0 });
@@ -48,6 +50,7 @@ export const ScrollSequenceCanvas: React.FC<ScrollSequenceCanvasProps> = ({
                     console.log(`Successfully loaded ${loadedImgs.length} images.`);
                     setImagesLoaded(loadedImgs);
                     setIsReady(true);
+                    if (onReady) onReady();
                 }
             } catch (err) {
                 console.error("Error preloading sequence:", err);
