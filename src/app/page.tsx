@@ -289,6 +289,10 @@ export default function Home() {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
         }
+        @keyframes drift {
+          0% { transform: translateX(-50vw); }
+          100% { transform: translateX(120vw); }
+        }
       `}</style>
 
       <main className="relative text-zinc-50 min-h-screen font-sans selection:bg-amber-500 selection:text-zinc-900 overflow-x-hidden bg-black">
@@ -326,13 +330,48 @@ export default function Home() {
         <div id="scroll-container" className="h-[2000vh] w-full">
 
           {/* JESKO JETS STYLE INITIAL OVERLAY */}
-          <div ref={introOverlayRef} className="fixed inset-0 z-[250] pointer-events-auto flex flex-col justify-between p-6 md:p-12">
+          <div ref={introOverlayRef} className="fixed inset-0 z-[250] pointer-events-auto flex flex-col justify-between p-6 md:p-12 overflow-hidden">
+
+            {/* Realistic Parallax Cloud Background Layers */}
+            <div className="absolute inset-x-0 top-0 h-[60vh] overflow-hidden -z-10 pointer-events-none">
+              {/* Very slow, distant, small cloud */}
+              <img
+                src="/assets/cloud.png"
+                alt="Cloud 1"
+                className="absolute top-[-10%] md:top-[-5%] w-[100px] md:w-[250px] object-contain opacity-20 animate-[drift_65s_linear_infinite]"
+                style={{ animationDelay: '-10s' }}
+              />
+
+              {/* Faster, mid-distance cloud */}
+              <img
+                src="/assets/cloud2.png"
+                alt="Cloud 2"
+                className="absolute top-[-5%] md:top-[0%] w-[180px] md:w-[400px] object-contain opacity-30 animate-[drift_45s_linear_infinite]"
+                style={{ animationDelay: '-25s' }}
+              />
+
+              {/* Smaller higher scattered cloud */}
+              <img
+                src="/assets/cloud3.png"
+                alt="Cloud 3"
+                className="absolute top-[-8%] md:top-[-2%] w-[120px] md:w-[300px] object-contain opacity-20 animate-[drift_55s_linear_infinite]"
+                style={{ animationDelay: '-40s' }}
+              />
+
+              {/* Fastest, closest, large cloud */}
+              <img
+                src="/assets/cloud4.png"
+                alt="Cloud 4"
+                className="absolute top-[0%] md:top-[3%] w-[250px] md:w-[550px] object-contain opacity-40 animate-[drift_30s_linear_infinite]"
+                style={{ animationDelay: '-5s' }}
+              />
+            </div>
 
             {/* Empty Top Space to clear nav */}
             <div className="h-[20px]"></div>
 
             {/* Huge Typography Overlay */}
-            <div ref={introHugeTextRef} className="absolute inset-0 flex items-center justify-between px-8 md:px-24 pointer-events-none -mt-32 md:-mt-48">
+            <div ref={introHugeTextRef} className="absolute inset-0 flex items-start pt-32 md:pt-40 justify-between px-8 md:px-24 pointer-events-none">
               <h2 className="text-5xl md:text-7xl lg:text-[9rem] font-medium leading-[0.9] tracking-tighter drop-shadow-2xl">
                 Lifeline <br />of nation
               </h2>
@@ -484,13 +523,7 @@ export default function Home() {
         </div>
 
         {/* 3. The 3D Engine Interactor Section */}
-        <section className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 pt-24 pb-24 flex flex-col items-center">
-
-          {/* Section Header */}
-          <div className="text-center px-4 w-full max-w-4xl mb-12 z-10">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 mb-4" style={{ fontFamily: "'Oswald', sans-serif" }}>Experience the Fleet</h2>
-            <p className="text-zinc-400 max-w-2xl mx-auto">Get up close with the engineering marvels that power the nation in full interactive 3D.</p>
-          </div>
+        <section className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 pt-8 pb-24 flex flex-col items-center">
 
           {/* WAP-7 Engine */}
           <div className="w-full max-w-6xl mx-auto rounded-3xl relative h-[60vh] md:h-[80vh] group mb-8">
