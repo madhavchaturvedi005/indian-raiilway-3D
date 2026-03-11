@@ -561,58 +561,28 @@ export default function Home() {
 
         </section>
 
-        {/* 4. The booking section that user scrolls down to after the cinematic hero */}
-        <section className="relative z-20 bg-zinc-950/80 backdrop-blur-3xl flex items-center justify-center border-t border-zinc-800/50 py-24">
-          <div className="container max-w-4xl mx-auto p-12 rounded-[2rem] bg-zinc-900/40 shadow-2xl border border-zinc-800/50 backdrop-blur-xl">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-amber-500/20 text-amber-500 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /><line x1="4" x2="4" y1="22" y2="15" /></svg>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-light tracking-tight" style={{ fontFamily: "'Oswald', sans-serif" }}>Plan Your Journey</h2>
+        {/* 4. Footer */}
+        <footer className="relative z-20 bg-zinc-950 border-t border-zinc-900 py-16 px-6 text-zinc-400">
+          <div className="container max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h2 className="text-2xl font-bold tracking-[0.2em] uppercase text-white mb-2" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                Indian Railways
+              </h2>
+              <p className="max-w-md text-sm leading-relaxed text-zinc-500">
+                A journey through steel, heritage, and modern luxury. Expanding the horizons of India with cutting-edge infrastructure and world-class trains.
+              </p>
             </div>
-
-            {/* Conceptual Booking Form */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-              <div className="md:col-span-5 bg-zinc-950/50 border border-zinc-800 rounded-2xl p-4 transition-colors hover:border-zinc-700">
-                <label className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block font-medium">From</label>
-                <input type="text" placeholder="New Delhi (NDLS)" className="w-full bg-transparent border-none text-xl outline-none placeholder:text-zinc-600 focus:text-white transition-colors" />
-              </div>
-
-              <div className="hidden md:flex col-span-2 items-center justify-center">
-                <div className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-500 relative z-10 bg-zinc-900">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                  <svg className="absolute" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                </div>
-              </div>
-
-              <div className="md:col-span-5 bg-zinc-950/50 border border-zinc-800 rounded-2xl p-4 transition-colors hover:border-zinc-700">
-                <label className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block font-medium">To</label>
-                <input type="text" placeholder="Mumbai Central (MMCT)" className="w-full bg-transparent border-none text-xl outline-none placeholder:text-zinc-600 focus:text-white transition-colors" />
-              </div>
-
-              <div className="md:col-span-4 bg-zinc-950/50 border border-zinc-800 rounded-2xl p-4 transition-colors hover:border-zinc-700">
-                <label className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block font-medium">Date</label>
-                <input type="date" className="w-full bg-transparent border-none text-lg outline-none text-zinc-400 focus:text-white [color-scheme:dark]" />
-              </div>
-
-              <div className="md:col-span-4 bg-zinc-950/50 border border-zinc-800 rounded-2xl p-4 transition-colors hover:border-zinc-700">
-                <label className="text-xs uppercase tracking-widest text-zinc-500 mb-2 block font-medium">Class</label>
-                <select className="w-full bg-transparent border-none text-lg outline-none text-zinc-400 focus:text-white appearance-none cursor-pointer">
-                  <option>1A (First AC)</option>
-                  <option>2A (Second AC)</option>
-                  <option>3A (Third AC)</option>
-                  <option>SL (Sleeper)</option>
-                </select>
-              </div>
-
-              <div className="md:col-span-4">
-                <button className="w-full h-full min-h-[5rem] bg-amber-500 hover:bg-amber-400 text-zinc-950 rounded-2xl font-bold uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_-10px_rgba(245,158,11,0.5)]">
-                  Search Trains
-                </button>
+            <div className="flex flex-col items-center md:items-end text-center md:text-right">
+              <div className="text-sm uppercase tracking-widest font-medium text-zinc-500 mb-2">Developed By</div>
+              <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600 uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer">
+                Madhav Chaturvedi
               </div>
             </div>
           </div>
-        </section>
+          <div className="container max-w-6xl mx-auto mt-16 pt-8 border-t border-zinc-900 flex flex-col justify-center items-center text-xs text-zinc-600">
+            <p>&copy; 2026 Indian Railways 3D Experience. All rights reserved.</p>
+          </div>
+        </footer>
 
       </main>
     </>
