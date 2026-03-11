@@ -11,6 +11,11 @@ const Engine3D = dynamic(() => import("@/components/Engine3D"), {
   loading: () => <div className="w-full min-h-[600px] flex items-center justify-center"><div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div></div>
 });
 
+const Wag9Engine3D = dynamic(() => import("@/components/Wag9Engine3D"), {
+  ssr: false,
+  loading: () => <div className="w-full min-h-[600px] flex items-center justify-center"><div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div></div>
+});
+
 // Generate the 120 frame URLs for hero1
 const hero1Frames = Array.from({ length: 120 }, (_, i) => {
   const frameNumber = (i + 1).toString().padStart(3, "0");
@@ -479,23 +484,48 @@ export default function Home() {
         </div>
 
         {/* 3. The 3D Engine Interactor Section */}
-        <section className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 py-24 flex flex-col items-center">
-          <div className="w-full max-w-6xl mx-auto rounded-3xl relative h-[60vh] md:h-[80vh] group">
+        <section className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 pt-24 pb-24 flex flex-col items-center">
+
+          {/* Section Header */}
+          <div className="text-center px-4 w-full max-w-4xl mb-12 z-10">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 mb-4" style={{ fontFamily: "'Oswald', sans-serif" }}>Experience the Fleet</h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">Get up close with the engineering marvels that power the nation in full interactive 3D.</p>
+          </div>
+
+          {/* WAP-7 Engine */}
+          <div className="w-full max-w-6xl mx-auto rounded-3xl relative h-[60vh] md:h-[80vh] group mb-8">
             {/* Big Name in the Back */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
               <h2 className="text-[10rem] md:text-[18rem] font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-zinc-500 to-zinc-900 leading-none" style={{ fontFamily: "'Oswald', sans-serif" }}>
                 WAP-7
               </h2>
             </div>
-
             {/* Engine in the Front */}
             <div className="absolute inset-0 z-10 w-full h-full">
               <Engine3D />
             </div>
           </div>
-          <div className="text-center mt-12 px-4 z-10 w-full max-w-4xl">
-            <p className="text-zinc-400 max-w-2xl mx-auto">Discover the workhorse of Indian Railways. Highly capable and immensely powerful, this electric locomotive hauls the most prestigious passenger trains across the network.</p>
+          <div className="text-center px-4 w-full max-w-4xl mb-24">
+            <p className="text-zinc-400 max-w-2xl mx-auto">Discover the workhorse of Indian Railways. Highly capable and immensely powerful, this electric passenger locomotive hauls the most prestigious trains across the network.</p>
           </div>
+
+          {/* WAG-9 Engine */}
+          <div className="w-full max-w-6xl mx-auto rounded-3xl relative h-[60vh] md:h-[80vh] group mb-8">
+            {/* Big Name in the Back */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
+              <h2 className="text-[10rem] md:text-[18rem] font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-zinc-500 to-zinc-900 leading-none" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                WAG-9
+              </h2>
+            </div>
+            {/* Engine in the Front */}
+            <div className="absolute inset-0 z-10 w-full h-full">
+              <Wag9Engine3D />
+            </div>
+          </div>
+          <div className="text-center px-4 w-full max-w-4xl">
+            <p className="text-zinc-400 max-w-2xl mx-auto">Meet the heavy lifter. The WAG-9 is the most powerful freight locomotive in India, forming the backbone of the Dedicated Freight Corridors.</p>
+          </div>
+
         </section>
 
         {/* 4. The booking section that user scrolls down to after the cinematic hero */}
