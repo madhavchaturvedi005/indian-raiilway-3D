@@ -299,7 +299,7 @@ export default function Home() {
           {/* Huge Typography Overlay */}
           <div ref={introHugeTextRef} className="absolute inset-0 flex items-center justify-between px-8 md:px-24 pointer-events-none -mt-32 md:-mt-48">
             <h2 className="text-5xl md:text-7xl lg:text-[9rem] font-medium leading-[0.9] tracking-tighter drop-shadow-2xl">
-              Lifeline of<br />the nation
+              Lifeline of<br />nation
             </h2>
             <h2 className="text-5xl md:text-7xl lg:text-[9rem] font-medium leading-[0.9] tracking-tighter text-right drop-shadow-2xl">
               Modernizing<br />a legacy
