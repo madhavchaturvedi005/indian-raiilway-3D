@@ -302,10 +302,21 @@ export default function Home() {
         <nav className="fixed top-0 left-0 w-full z-[400] p-6 md:p-12 pointer-events-none text-white mix-blend-difference">
           <div className="pointer-events-auto max-w-6xl mx-auto flex justify-between items-center text-[10px] md:text-xs font-bold tracking-widest uppercase">
             <div className="flex gap-4 md:gap-8 flex-1">
-              <span className="cursor-pointer hover:text-white/70 transition-colors">About</span>
-              <span className="cursor-pointer hover:text-white/70 transition-colors">Our Fleet</span>
-              <span className="cursor-pointer hover:text-white/70 transition-colors">Advantages</span>
-              <span className="cursor-pointer hover:text-white/70 transition-colors">Global</span>
+              <span onClick={() => {
+                const el = document.getElementById("locomotives");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }} className="cursor-pointer hover:text-white/70 transition-colors">Locomotives</span>
+              <span onClick={() => {
+                const scrollContainer = document.getElementById("scroll-container");
+                if (scrollContainer) {
+                  const scrollHeight = scrollContainer.scrollHeight || scrollContainer.offsetHeight;
+                  const scrollY = scrollContainer.offsetTop + (scrollHeight * (63 / 600));
+                  window.scrollTo({ top: scrollY, behavior: "smooth" });
+                }
+              }} className="cursor-pointer hover:text-white/70 transition-colors">Infrastructure</span>
+              <span onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }} className="cursor-pointer hover:text-white/70 transition-colors">Legacy</span>
             </div>
 
             <div className="flex justify-center flex-1">
@@ -524,7 +535,17 @@ export default function Home() {
         </div>
 
         {/* 3. The 3D Engine Interactor Section */}
-        <section className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 pt-8 pb-24 flex flex-col items-center">
+        <section id="locomotives" className="relative z-20 w-full bg-[#09090b] border-t border-zinc-800/50 pt-16 pb-24 flex flex-col items-center">
+
+          {/* Headline for Locomotive Models */}
+          <div className="text-center w-full max-w-4xl px-4 mt-8 mb-16">
+            <h3 className="text-amber-500 text-sm font-bold tracking-widest uppercase mb-4 drop-shadow-lg">Our Fleet</h3>
+            <h2 className="text-4xl md:text-6xl font-light mb-6 text-white drop-shadow-xl" style={{ fontFamily: "'Oswald', sans-serif" }}>Powering the Network</h2>
+            <div className="w-16 h-1 bg-amber-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-zinc-400 text-base max-w-2xl mx-auto">
+              Explore the engineering marvels that drive Indian Railways. From high-speed passenger haulers to heavy-duty freight movers, discover our 3D locomotives.
+            </p>
+          </div>
 
           {/* WAP-7 Engine */}
           <div className="w-full max-w-6xl mx-auto rounded-3xl relative h-[60vh] md:h-[80vh] group mb-8">
