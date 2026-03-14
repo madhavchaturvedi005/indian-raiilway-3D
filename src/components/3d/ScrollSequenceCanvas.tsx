@@ -84,8 +84,13 @@ export const ScrollSequenceCanvas: React.FC<ScrollSequenceCanvasProps> = ({
             if (!img || !ctx) return;
 
             // Draw image covering the canvas (object-fit: cover equivalent)
+            // Crop the bottom 8% to remove the "Veo" watermark
+            const cropRatio = 0.08;
+            const srcWidth = img.width;
+            const srcHeight = img.height * (1 - cropRatio);
+
             const canvasRatio = canvas.width / canvas.height;
-            const imgRatio = img.width / img.height;
+            const imgRatio = srcWidth / srcHeight;
 
             let drawWidth = canvas.width;
             let drawHeight = canvas.height;
@@ -94,20 +99,19 @@ export const ScrollSequenceCanvas: React.FC<ScrollSequenceCanvasProps> = ({
 
             if (canvasRatio > imgRatio) {
                 drawHeight = canvas.width / imgRatio;
-                // Shift the image up (align closer to the bottom to bring the mountain in the frame up)
+                // Shift the image up (align closer to the bottom off the cropped image)
                 offsetY = canvas.height - drawHeight;
             } else {
                 drawWidth = canvas.height * imgRatio;
                 offsetX = (canvas.width - drawWidth) / 2;
-
-                // If it's constrained by height, we might also want to pan the image up,
-                // but since it fits the height perfectly, offsetY is 0. 
-                // However, we can increase the scale slightly to allow panning if desired,
-                // but usually, it's the width constraint (canvasRatio > imgRatio) that causes cropping on ultra-wide desktop.
             }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+            ctx.drawImage(
+                img,
+                0, 0, srcWidth, srcHeight, // Source rectangle
+                offsetX, offsetY, drawWidth, drawHeight // Destination rectangle
+            );
         };
 
         window.addEventListener("resize", resizeCanvas);

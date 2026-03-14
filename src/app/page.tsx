@@ -284,7 +284,8 @@ export default function Home() {
         </div>
       </div>
 
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes slide {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
@@ -293,7 +294,7 @@ export default function Home() {
           0% { transform: translateX(-50vw); }
           100% { transform: translateX(120vw); }
         }
-      `}</style>
+      `}} />
 
       <main className="relative text-zinc-50 min-h-screen font-sans selection:bg-amber-500 selection:text-zinc-900 overflow-x-hidden bg-black">
 
